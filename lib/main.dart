@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_flutter/config/routes/app_router.dart';
 import 'package:widgets_flutter/config/theme/app_theme.dart';
 
 void main() {
@@ -10,39 +11,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: AppTheme(
         selectedColor: 0,
       ).getthemeData(),
-      home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {
-              print('Menu button clicked');
-            },
-          ),
-          title: const Text('Toolbar!'),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.search),
-              onPressed: () {
-                print('Search button clicked');
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.more_vert),
-              onPressed: () {
-                print('More button clicked');
-              },
-            ),
-          ],
-        ),
-        body: Center(
-          child: Text('Hello World! 1'),
-        ),
-      ),
+      routerConfig: appRouter,
     );
   }
 }
